@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Jonatan Test Scene.unity
+    guid: 66152a44f0bc8184cb6afb0f603df869
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 95c56cea0da0909489321ef472710492, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e79a2bc8db02b424e814f24795f28ccc, type: 2}
