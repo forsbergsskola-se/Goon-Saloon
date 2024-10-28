@@ -49,9 +49,11 @@ namespace Enemies
         private IEnumerator UpdateMove()
         {
             //Move Towards the target Window
-            while (isActive && Vector3.Distance(transform.position, window.transform.position) > 10)
+            while (isActive && Vector3.Distance(transform.position, window.transform.position) > 1.75f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, window.transform.position, moveSpeed * Time.deltaTime);
+                Vector3 targetPos = new Vector3(window.transform.position.x, transform.position.y, window.transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+                
                 yield return new WaitForSeconds(Time.deltaTime);
             }
             
