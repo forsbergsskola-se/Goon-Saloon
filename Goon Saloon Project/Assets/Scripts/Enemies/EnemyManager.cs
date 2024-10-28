@@ -17,7 +17,7 @@ namespace Enemies
 
         private void Start()
         {
-            
+            StartCoroutine(EnemySpawner());
         }
 
         private IEnumerator EnemySpawner()
