@@ -10,12 +10,13 @@ public class Gun : MonoBehaviour
     public float bulletSpeed = 10;
     public int maxShots = 2;
     public int ammo = 6;
-
+    public Transform reticle;
+    
     private int currentShots = 0;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && currentShots < maxShots)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && currentShots < maxShots)
         {
             Shoot();
         }
@@ -29,7 +30,10 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+        
+        Vector3 shootDirection = (reticle.position - bulletSpawnPoint.position).normalized;
+        
+        bullet.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
 
         currentShots++;
 
