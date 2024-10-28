@@ -58,7 +58,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930747114588570, guid: 4536ad16b3820f44f8d0bc060bda8029, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Barrel_Broken_03 (1)
+      value: Plank2
       objectReference: {fileID: 0}
     - target: {fileID: 4382815039286744, guid: 4536ad16b3820f44f8d0bc060bda8029, type: 3}
       propertyPath: m_LocalScale.x
@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930747114588570, guid: 4536ad16b3820f44f8d0bc060bda8029, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Barrel_Broken_03 (2)
+      value: Plank3
       objectReference: {fileID: 0}
     - target: {fileID: 4382815039286744, guid: 4536ad16b3820f44f8d0bc060bda8029, type: 3}
       propertyPath: m_LocalScale.x
@@ -208,7 +208,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930747114588570, guid: 4536ad16b3820f44f8d0bc060bda8029, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Barrel_Broken_03
+      value: Plank1
       objectReference: {fileID: 0}
     - target: {fileID: 1930747114588570, guid: 4536ad16b3820f44f8d0bc060bda8029, type: 3}
       propertyPath: m_IsActive
