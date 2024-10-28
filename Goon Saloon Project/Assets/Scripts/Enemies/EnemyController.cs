@@ -30,6 +30,9 @@ namespace Enemies
             foreach (var character in characterTransforms)
                 character.gameObject.SetActive(false);
             
+            isActive = active;
+            gameObject.SetActive(active);
+            
             if (active)
             {
                 StartCoroutine(UpdateMove());
@@ -41,10 +44,6 @@ namespace Enemies
             {
                 transform.position = spawnPosition;
             }
-
-            
-            isActive = active;
-            gameObject.SetActive(active);
         }
 
         private IEnumerator UpdateMove()

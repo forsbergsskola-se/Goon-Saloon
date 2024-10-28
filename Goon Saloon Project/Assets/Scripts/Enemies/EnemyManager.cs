@@ -31,8 +31,6 @@ namespace Enemies
 
                 spawnRate -= spawnRate * spawnRateAcceleration;
             }
-
-            
         }
         
 

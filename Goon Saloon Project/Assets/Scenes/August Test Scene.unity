@@ -10327,8 +10327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1361392554}
-  initialSpawnDelay: 8
-  spawnRate: 4
+  initialSpawnDelay: 1
+  spawnRate: 6
   spawnRateAcceleration: 0.2
 --- !u!4 &901932283
 Transform:
@@ -15530,6 +15530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846493063317603020, guid: da75617b31713874fa183b424a37fea4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195076100402779752, guid: da75617b31713874fa183b424a37fea4,
         type: 3}
