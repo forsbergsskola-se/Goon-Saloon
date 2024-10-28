@@ -16,6 +16,8 @@ namespace Enemies
         private Vector3 spawnPosition;
 
         private float countDown;
+
+        public Transform[] characterTransforms;
         
         
         private void Start()
@@ -25,14 +27,21 @@ namespace Enemies
         
         public void SetActive(bool active)
         {
+            foreach (var character in characterTransforms)
+                character.gameObject.SetActive(false);
+            
             if (active)
             {
                 StartCoroutine(UpdateMove());
+                
+                int index = Random.Range(0, characterTransforms.Length);
+                characterTransforms[index].gameObject.SetActive(true);
             }
             else
             {
                 transform.position = spawnPosition;
             }
+
             
             isActive = active;
             gameObject.SetActive(active);
