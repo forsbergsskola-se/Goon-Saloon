@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -13,8 +15,28 @@ namespace Enemies
         public float spawnRate;
         public float spawnRateAcceleration;
 
+        private void Start()
+        {
+            
+        }
 
-        public void SpawnEnemy()
+        private IEnumerator EnemySpawner()
+        {
+            yield return new WaitForSeconds(initialSpawnDelay);
+            
+            while (true)
+            {
+                SpawnEnemy();
+                yield return new WaitForSeconds(spawnRate);
+
+                spawnRate -= spawnRate * spawnRateAcceleration;
+            }
+
+            
+        }
+        
+
+        private void SpawnEnemy()
         {
             List<EnemyController> inactiveEnemies = new List<EnemyController>();
             inactiveEnemies.AddRange(enemies.Where(enemy => !enemy.gameObject.activeSelf));
