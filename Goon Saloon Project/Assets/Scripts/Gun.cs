@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -8,23 +6,36 @@ public class Gun : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpeed = 10;
-    public int maxShots = 2;
-    public int ammo = 6;
-    public Transform reticle;
+    public Transform reticle; //Is not set inside of prefab
+    public Transform barrelTransform;
     
-    private int currentShots = 0;
+    public Transform[] bulletTransforms;
+
+    
+    private GunAmmunition gunAmmo;
+    private bool isReloading;
+
+    private void Start()
+    {
+        gunAmmo = new GunAmmunition();
+        gunAmmo.OnBeginReloading.AddListener(OnBeginReloading);
+        gunAmmo.OnEndReloading.AddListener(OnEndReloading);
+
+    }
 
     private void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && currentShots < maxShots)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && !isReloading)
         {
             Shoot();
         }
         
-        if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
-        {
-            Reload();
-        }
+        //No button should be pressed for reloading
+        
+        // if (Input.GetKeyDown(KeyCode.R) && ammo > 0)
+        // {
+        //     Reload();
+        // }
     }
 
     private void Shoot()
@@ -34,29 +45,73 @@ public class Gun : MonoBehaviour
         Vector3 shootDirection = (reticle.position - bulletSpawnPoint.position).normalized;
         
         bullet.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
-
-        currentShots++;
-
-        if (ammo <= 0)
-        {
-            Debug.Log("No ammunition.");
-        }
-    }
-
-    private void Reload()
-    {
-        if (ammo > 0)
-        {
-            Debug.Log("Reloading the weapon...");
-            currentShots = 0;
-            ammo -= 2;
-        }
-        else
-        {
-            Debug.Log("No ammunition.");
-        }
         
+        RemoveBullet();
+        
+        if (isReloading)
+        {
+            Debug.Log("No ammunition.");
+        }
+    }
+    
+    // private void Reload()
+    // {
+    //     if (ammo > 0)
+    //     {
+    //         Debug.Log("Reloading the weapon...");
+    //         currentShots = 0;
+    //         ammo -= 2;
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("No ammunition.");
+    //     }
+    //     
+    // }
+
+    private void AddBullet()
+    {
+        UpdateBulletsInGun(true);
+        gunAmmo.AddBullet();
     }
 
+    private void RemoveBullet()
+    {
+        UpdateBulletsInGun(false);
+        gunAmmo.RemoveBullet();
+    }
+    
+    
+    private void OnBeginReloading()
+    {
+        isReloading = true;
+        barrelTransform.rotation = Quaternion.Euler(45, 0, 0);
+    }
+    private void OnEndReloading()
+    {
+        isReloading = false;
+        barrelTransform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    //Visually Removes or Adds a bullet to the gun
+    private void UpdateBulletsInGun(bool isAddingBullet)
+    {
+        //Get the first active/Inactive bullet
+        var bulletTransform = bulletTransforms.FirstOrDefault(bullet => bullet.gameObject.activeSelf != isAddingBullet);
+
+        //Set that bullet to Active/Inactive
+        if (bulletTransform != null)
+            bulletTransform.gameObject.SetActive(isAddingBullet);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isReloading && other.CompareTag("Bullet"))
+        {
+            AddBullet();
+            Destroy(other.gameObject);
+        }
+    }
 }
 
