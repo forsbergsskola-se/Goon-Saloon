@@ -615,7 +615,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 4885433760124914648}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 03b8b235-acfb-41f2-a2bc-61a30d91ee36
+  instanceId: b4e99cec-32a2-4c08-9f43-125b07693608
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 48f2109b-ca37-48fc-928b-6d1905b5a621
+  instanceId: 353bbbf9-c552-45c8-9e29-7f31975048ad
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -859,7 +859,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 120505913003861848}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 4885433760124914648}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
@@ -950,6 +950,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2416888855005868440, guid: ee95ecdc143c946fdac8b8c458b70983,
+        type: 3}
+      propertyPath: _pointableElement
+      value: 
+      objectReference: {fileID: 4714620312034288599}
+    - target: {fileID: 3651925168542259529, guid: ee95ecdc143c946fdac8b8c458b70983,
+        type: 3}
+      propertyPath: instanceId
+      value: e10cf363-b445-45e8-8946-26ada05336ed
+      objectReference: {fileID: 0}
     - target: {fileID: 4223488449671717163, guid: ee95ecdc143c946fdac8b8c458b70983,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1038,6 +1048,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ammo_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416888855005868440, guid: ee95ecdc143c946fdac8b8c458b70983,
+        type: 3}
+      propertyPath: _pointableElement
+      value: 
+      objectReference: {fileID: 4714620312034288599}
+    - target: {fileID: 3651925168542259529, guid: ee95ecdc143c946fdac8b8c458b70983,
+        type: 3}
+      propertyPath: instanceId
+      value: 933d2ce2-57b1-4f51-b634-93fa68f3a34a
       objectReference: {fileID: 0}
     - target: {fileID: 4223488449671717163, guid: ee95ecdc143c946fdac8b8c458b70983,
         type: 3}
