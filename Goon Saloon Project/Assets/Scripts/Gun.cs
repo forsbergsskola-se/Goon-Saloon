@@ -40,6 +40,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
+        Debug.Log("!");
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         
         Vector3 shootDirection = (reticle.position - bulletSpawnPoint.position).normalized;
