@@ -11,6 +11,8 @@ public class Gun : MonoBehaviour
     
     public Transform[] bulletTransforms;
 
+    public AudioSource addAmmoAudio;
+    public AudioSource shootAudio;
     
     private GunAmmunition gunAmmo;
     private bool isReloading;
@@ -45,7 +47,7 @@ public class Gun : MonoBehaviour
         Vector3 shootDirection = (reticle.position - bulletSpawnPoint.position).normalized;
         
         bullet.GetComponent<Rigidbody>().velocity = shootDirection * bulletSpeed;
-        
+        shootAudio.Play();
         RemoveBullet();
         
         if (isReloading)
@@ -73,6 +75,7 @@ public class Gun : MonoBehaviour
     {
         UpdateBulletsInGun(true);
         gunAmmo.AddBullet();
+        addAmmoAudio.Play();
     }
 
     private void RemoveBullet()

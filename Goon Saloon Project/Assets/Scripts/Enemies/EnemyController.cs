@@ -19,6 +19,9 @@ namespace Enemies
 
         public Transform[] characterTransforms;
         
+        public AudioSource reloadAudio;
+        public AudioSource shootAudio;
+
         
         private void Start()
         {
@@ -77,12 +80,15 @@ namespace Enemies
         {
             while (isActive)
             {
+                
+                reloadAudio.Play();
                 yield return new WaitForSeconds(attackDelay);
                 
                 //Shoot Player
-                
-                yield return new WaitForSeconds(reloadTime);
+                shootAudio.Play();
 
+                yield return new WaitForSeconds(reloadTime);
+                
             }
         }
 
